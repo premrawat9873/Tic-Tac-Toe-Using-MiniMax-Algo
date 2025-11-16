@@ -1,0 +1,206 @@
+/* ============================================================
+   MINIMAL BLACK & GRAY THEME (NON-SCROLLING + BEAUTIFUL TEXT)
+   ============================================================ */
+
+/* Global Setup */
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling globally */
+  background: #0b0b0b;
+  font-family: "Inter", "SF Pro Display", "Poppins", sans-serif;
+  color: #e5e5e5;
+}
+
+/* Fullscreen Center Wrapper */
+.fullscreen {
+  height: 100vh;
+  width: 100vw;
+  background: #0b0b0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* GitHub Button */
+.github-btn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  padding: 10px 16px;
+  background: #222;
+  color: #e5e5e5;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #333;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+  transition: 0.25s ease;
+}
+.github-btn:hover {
+  background: #333;
+  transform: translateY(-3px);
+}
+
+/* Game Card */
+.game-card {
+  width: 440px;
+  background: rgba(255,255,255,0.03);
+  padding: 28px 24px;
+  border-radius: 18px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+}
+
+/* ---------------- BEAUTIFUL TEXT ---------------- */
+
+/* Title (Premium Gradient Text) */
+.title {
+  font-size: 28px;
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  background: linear-gradient(90deg, #fafafa, #bfbfbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(255,255,255,0.08);
+}
+
+.title span {
+  background: linear-gradient(90deg, #888, #ddd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #b7b7b7;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Controls (Text + Inputs) */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  color: #c8c8c8;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+}
+
+.controls select,
+.controls button {
+  padding: 6px 10px;
+  background: #111;
+  border: 1px solid #333;
+  color: #dcdcdc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: 0.2s ease;
+}
+
+.controls select:hover,
+.controls button:hover {
+  background: #1b1b1b;
+}
+
+.controls .primary {
+  background: #222;
+  border: none;
+  font-weight: 600;
+}
+.controls .primary:hover {
+  background: #2c2c2c;
+}
+
+/* ---------------- BOARD ---------------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 10px;
+  justify-content: center;
+  margin: 14px auto;
+}
+
+/* Game Cells */
+.cell {
+  height: 90px;
+  background: #111;
+  border-radius: 12px;
+  border: 1px solid #222;
+  box-shadow: inset 0 -3px 6px rgba(255,255,255,0.02),
+              0 6px 16px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 600;
+  color: #e5e5e5;
+  transition: 0.25s ease;
+}
+
+.cell:hover {
+  background: #1a1a1a;
+  transform: translateY(-4px);
+}
+
+.cell.disabled {
+  opacity: 0.4;
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* Status Text */
+.status {
+  color: #c5c5c5;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  font-weight: 400;
+  margin-top: 12px;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.05);
+}
+
+/* Mobile Responsiveness (No Scroll) */
+@media (max-height: 680px) {
+  .game-card {
+    transform: scale(0.88);
+  }
+}
+
+@media (max-height: 560px) {
+  .game-card {
+    transform: scale(0.75);
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(3, 70px);
+    gap: 8px;
+  }
+  .cell {
+    height: 70px;
+    font-size: 30px;
+  }
+  .title {
+    font-size: 22px;
+  }
+}
